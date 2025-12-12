@@ -1,9 +1,9 @@
 /* Background and layout */
 .about2-container {
-  background: linear-gradient(to bottom, #d3e6d9, #d3e6d9);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   min-height: 100vh;
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
   color: #000;
   overflow-x: hidden;
@@ -57,11 +57,72 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-icon {
+  font-size: 1.8rem;
 }
 
 .about2-item p {
   font-size: 1.05rem;
   line-height: 1.6;
+}
+
+/* Cards section */
+.about2-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.about2-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 30px 35px;
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about2-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.about2-card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.about2-card p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about2-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.about2-card li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.about2-card strong {
+  font-weight: 600;
+  color: #000;
 }
 
 /* Team section */

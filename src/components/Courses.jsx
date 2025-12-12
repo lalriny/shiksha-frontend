@@ -1,23 +1,87 @@
 import React, { useState } from 'react';
 import '../css/Courses.css';
+import { Link } from 'react-router-dom';
 
 const Courses = () => {
   const [selectedClass, setSelectedClass] = useState('Class 8');
   const [selectedStream, setSelectedStream] = useState(null);
 
   const subjectsData = {
-    'Class 8': ['Science', 'Social Science', 'Maths', 'English', 'GK', 'IT','MIL'],
-    'Class 9': ['Science', 'Social Science', 'Maths', 'English', 'GK', 'MIL'],
-    'Class 10': ['Science', 'Social Science', 'Maths', 'English', 'MIL'],
+    'Class 8': [
+      { name: 'Science', icon: '🧪' },
+      { name: 'Social Science', icon: '🌍' },
+      { name: 'Maths', icon: '🔢' },
+      { name: 'English', icon: '📚' },
+      { name: 'GK', icon: '🧠' },
+      { name: 'IT', icon: '💻' },
+      { name: 'MIL', icon: '🗣️' }
+    ],
+    'Class 9': [
+      { name: 'Science', icon: '🧪' },
+      { name: 'Social Science', icon: '🌍' },
+      { name: 'Maths', icon: '🔢' },
+      { name: 'English', icon: '📚' },
+      { name: 'GK', icon: '🧠' },
+      { name: 'MIL', icon: '🗣️' }
+    ],
+    'Class 10': [
+      { name: 'Science', icon: '🧪' },
+      { name: 'Social Science', icon: '🌍' },
+      { name: 'Maths', icon: '🔢' },
+      { name: 'English', icon: '📚' },
+      { name: 'MIL', icon: '🗣️' }
+    ],
     'Class 11': {
-      'Science': ['Physics', 'Chemistry', 'Biology', 'Maths', 'English'],
-      'Arts': ['History', 'Geography', 'Political Science', 'Sociology', 'English', 'Hindi'],
-      'Commerce': ['Accountancy', 'Business Studies', 'Economics', 'Maths', 'English']
+      'Science': [
+        { name: 'Physics', icon: '⚛️' },
+        { name: 'Chemistry', icon: '🧪' },
+        { name: 'Biology', icon: '🧬' },
+        { name: 'Maths', icon: '🔢' },
+        { name: 'English', icon: '📚' },
+        { name: 'MIL', icon: '🗣️' }
+      ],
+      'Arts': [
+        { name: 'History', icon: '📜' },
+        { name: 'Geography', icon: '🌍' },
+        { name: 'Political Science', icon: '🏛️' },
+        { name: 'Sociology', icon: '👥' },
+        { name: 'English', icon: '📚' },
+        { name: 'MIL', icon: '🗣️' }
+      ],
+      'Commerce': [
+        { name: 'Accountancy', icon: '📊' },
+        { name: 'Business Studies', icon: '💼' },
+        { name: 'Economics', icon: '💰' },
+        { name: 'Maths', icon: '🔢' },
+        { name: 'English', icon: '📚' },
+        { name: 'MIL', icon: '🗣️' }
+      ]
     },
     'Class 12': {
-      'Science': ['Physics', 'Chemistry', 'Biology', 'Maths', 'English'],
-      'Arts': ['History', 'Geography', 'Political Science', 'Sociology', 'English', 'Hindi'],
-      'Commerce': ['Accountancy', 'Business Studies', 'Economics', 'Maths', 'English']
+      'Science': [
+        { name: 'Physics', icon: '⚛️' },
+        { name: 'Chemistry', icon: '🧪' },
+        { name: 'Biology', icon: '🧬' },
+        { name: 'Maths', icon: '🔢' },
+        { name: 'English', icon: '📚' },
+        { name: 'MIL', icon: '🗣️' }
+      ],
+      'Arts': [
+        { name: 'History', icon: '📜' },
+        { name: 'Geography', icon: '🌍' },
+        { name: 'Political Science', icon: '🏛️' },
+        { name: 'Sociology', icon: '👥' },
+        { name: 'English', icon: '📚' },
+        { name: 'MIL', icon: '🗣️' }
+      ],
+      'Commerce': [
+        { name: 'Accountancy', icon: '📊' },
+        { name: 'Business Studies', icon: '💼' },
+        { name: 'Economics', icon: '💰' },
+        { name: 'Maths', icon: '🔢' },
+        { name: 'English', icon: '📚' },
+        { name: 'MIL', icon: '🗣️' }
+      ]
     }
   };
 
@@ -43,7 +107,8 @@ const Courses = () => {
           <div className="courses-subjects-grid">
             {subjectsData[selectedClass][selectedStream].map((subject, index) => (
               <div className="courses-subject-card" key={index}>
-                <h4>{subject}</h4>
+                <div className="card-icon">{subject.icon}</div>
+                <h4>{subject.name}</h4>
               </div>
             ))}
           </div>
@@ -73,7 +138,8 @@ const Courses = () => {
           <div className="courses-subjects-grid">
             {subjectsData[selectedClass].map((subject, index) => (
               <div className="courses-subject-card" key={index}>
-                <h4>{subject}</h4>
+                <div className="card-icon">{subject.icon}</div>
+                <h4>{subject.name}</h4>
               </div>
             ))}
           </div>

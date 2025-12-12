@@ -1,7 +1,54 @@
 .app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* min-width: 100%; */
   line-height: 1.6;
   color: #333;
   background-color: #faf9f6;
   min-height: 100vh;
+}
+.page-content{
+  min-width: 100%;
+}
+@media (min-width:1024px) {
+  .app{
+    min-width: fit-content;
+  }
+    .page-content{
+    min-width: fit-content;
+  }
+}
+@media (min-width:768px) {
+  .app{
+    min-width: fit-content;
+  }
+    .page-content{
+    min-width: fit-content;
+  }
+}
+@media (min-width:425px) {
+  .app{
+    min-width: fit-content;
+  }
+    .page-content{
+    min-width: fit-content;
+  }
+}
+@media (min-width:375px) {
+  .app{
+    min-width: fit-content;
+  }
+    .page-content{
+    min-width: fit-content;
+  }
+}
+@media (min-width:320px) {
+  .app{
+    min-width: fit-content;
+  }
+    .page-content{
+    min-width: fit-content;
+  }
 }

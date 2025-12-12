@@ -15,15 +15,15 @@ const Mission = () => {
             education using innovative technology and expert guidance. We are
             committed to empowering learners of all ages and backgrounds to
             achieve their full potential through engaging, personalized learning
-            experiences. By fostering a supportive community and leveraging
-            cutting-edge tools, we strive to make education inclusive,
-            effective, and transformative for everyone.
+            experiences.
           </p>
-          <p>
-            The mission of providing education to remote areas focuses on
-            bridging the gap in educational access and quality between urban and
-            rural settings.
-          </p>
+          <h2>Key Aspects:</h2>
+          <ul>
+            <li>Fostering a supportive community</li>
+            <li>Leveraging cutting-edge tools</li>
+            <li>Making education inclusive, effective, and transformative</li>
+            <li>Bridging the gap in educational access between urban and rural settings</li>
+          </ul>
         </div>
       </section>
     </div>

@@ -2,44 +2,38 @@ import '../css/Upcoming.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const Upcoming = () => {
-  const upcomingFeatures = [
+const Training = () => {
+  const trainingFeatures = [
     {
-      title: "Teacher Registration Portal",
-      description: "Complete registration system for educators to join our platform",
+      title: "Industrial Training Programs",
+      description: "Hands-on training in various industrial sectors including manufacturing, IT, and engineering",
       status: "Coming Soon",
-      
     },
     {
-      title: "Expert Network",
-      description: "Connect with industry experts for mentorship and guidance",
-      status: "In Development",
-    
-    },
-    {
-      title: "Advanced Analytics Dashboard",
-      description: "Comprehensive analytics for teachers and students",
-      status: "Coming soon",
-     
-    },
-    {
-      title: "Mobile App Launch",
-      description: "Native mobile applications for iOS and Android",
+      title: "Specialized Skill Development",
+      description: "Advanced courses in niche areas like AI, data science, and digital marketing",
       status: "Coming Soon",
-      
+    },
+ /*   {
+      title: "Teacher Training Workshops",
+      description: "Professional development programs for educators to enhance teaching skills",
+      status: "Planning Phase",
     },
     {
-      title: "AI-Powered Learning Paths",
-      description: "Personalized learning recommendations using AI",
+      title: "Corporate Training Solutions",
+      description: "Customized training programs for businesses and organizations",
+      status: "Coming Soon",
+    },
+    {
+      title: "Online Certification Courses",
+      description: "Industry-recognized certifications in various technical and non-technical fields",
       status: "Research Phase",
-      
     },
     {
-      title: "Virtual Reality Classrooms",
-      description: "Immersive learning experiences in VR environments",
+      title: "Internship Programs",
+      description: "Real-world experience opportunities for students and fresh graduates",
       status: "Concept Phase",
-      
-    }
+    } */
   ];
 
   return (
@@ -47,13 +41,13 @@ const Upcoming = () => {
       <div className="upcoming-page-content">
         <Navbar />
         <div className="upcoming-container">
-          <h1>Coming Soon</h1>
+          <h1>Training Programs - Coming Soon</h1>
           <p className="upcoming-page-description">
-            We're working hard to bring you exciting new features. Here's what's on our roadmap:
+            We're developing comprehensive training programs to empower learners and professionals. Here's what's in our pipeline:
           </p>
 
           <div className="upcoming-features-grid">
-            {upcomingFeatures.map((feature, index) => (
+            {trainingFeatures.map((feature, index) => (
               <div key={index} className="upcoming-feature-card">
                 <div className="upcoming-feature-header">
                   <h3>{feature.title}</h3>
@@ -63,7 +57,6 @@ const Upcoming = () => {
                 </div>
                 <p className="upcoming-feature-description">{feature.description}</p>
                 <div className="upcoming-feature-footer">
-                 
                 </div>
               </div>
             ))}
@@ -71,7 +64,7 @@ const Upcoming = () => {
 
           <div className="upcoming-cta-section">
             <h2>Stay Updated</h2>
-            <p>Be the first to know when these features launch!</p>
+            <p>Be the first to know when our training programs launch!</p>
             <div className="upcoming-cta-buttons">
               <button className="upcoming-notify-btn">Notify Me</button>
               <button className="upcoming-back-btn" onClick={() => window.history.back()}>
@@ -86,4 +79,4 @@ const Upcoming = () => {
   );
 };
 
-export default Upcoming;
+export default Training;

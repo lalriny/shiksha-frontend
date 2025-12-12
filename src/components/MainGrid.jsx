@@ -38,10 +38,10 @@ const MainGrid = () => {
   }, []);
 
   const notifications = [
-    "New JEE courses now available!",
-    "Live classes starting this week",
+    "New JEE courses will be available soon!",
+    "Live classes starting soon",
     "Scholarship opportunities for students",
-    "Teacher training programs open",
+    "Teacher training programs coming soon",
     "Upcoming career counselling sessions",
     "Digital India initiative updates",
     "Admission guidance for abroad",

@@ -398,7 +398,7 @@ const Insight = () => {
                   Search for any topic above to get comprehensive information.
                 </p>
                 <p>
-                  Try searching for topics like "Albert Einstein", "Machine Learning", or "Ancient Rome" to see the full information.
+                  Try searching for topics like "Albert Einstein" or "Ancient Rome" to see the full information.
                 </p>
               </article>
             )}
@@ -410,12 +410,12 @@ const Insight = () => {
             <aside>
               <div className="insight-sidebar">
                 <h3>Categories</h3>
-                <ul>
+                <ol>
                   <li><a href="#">Education</a></li>
                   <li><a href="#">Technology</a></li>
                   <li><a href="#">Science</a></li>
                   <li><a href="#">History</a></li>
-                </ul>
+                </ol>
 
                 {articleData && articleData.sections && articleData.sections.length > 0 && (
                   <>

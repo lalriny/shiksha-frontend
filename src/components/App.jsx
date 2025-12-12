@@ -21,6 +21,10 @@ import Signup from '../auth/Signup'
 import Courses from './Courses'
 import TermsCondition from './TermsCondition'
 import Insight from './Insight'
+import Training from './Training'
+import GeneralStudies from './GeneralStudies'
+import Faq from './Faq'
+import Counselling from './Counselling'
 
 function App() {
   return (
@@ -128,6 +132,14 @@ function App() {
           </div>
         } />
 
+        <Route path="/faq" element={
+          <div className="page-content">
+            <Navbar />
+            <Faq />
+            <Footer />
+          </div>
+        } />
+
       <Route path="/insight" element={
           <div className="page-content">
             <Navbar />
@@ -135,6 +147,30 @@ function App() {
             <Footer />
           </div>
         } />
+
+      <Route path="/training" element={
+          <div className="page-content">
+            <Training />
+          </div>
+        } />
+
+        <Route path="/general-studies" element={
+          <div className="page-content">
+            <Navbar />
+            <GeneralStudies />
+            <Footer />
+          </div>
+        } />         
+
+        <Route path="/counselling" element={<Counselling />} />
+        <Route path="/counselling" element={
+          <div className="page-content">
+            <Navbar />
+            <Counselling />
+            <Footer />
+          </div>
+        } />
+        
 
       </Routes>
     </div>

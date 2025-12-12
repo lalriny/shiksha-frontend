@@ -10,27 +10,21 @@ const Values = () => {
       <section className="about2-cards">
         <div className="about2-card">
           <p>
-            At Shiksha, our values are the foundation of everything we do.
-            </p>
-            <p>Commitment to excellence ensures we deliver the highest quality
-            education.</p> 
-            <p>Quality in our content and services empowers learners to
-            succeed.</p>
-            <p>Inclusivity means we welcome and support learners from all
-            backgrounds, making education accessible to everyone.</p> 
-            <p>Innovation drives us to continuously improve and adapt to the evolving needs of
-            our community.</p> 
-            <p>These values guide our decisions and inspire our team
-            to create a positive impact in the world of education.
+            At Shiksha, our values are the foundation of everything we do. These values guide our decisions and inspire our team to create a positive impact in the world of education.
           </p>
-          <p>
-            Digital Mode of Learning aims to enhance teaching and learning
-            through technology integration. - Mobile schools or “ m-learning”
-            bring education directly to remote communities, often incorporating
-            digital tools. Platforms are provided for
-            easily accessible and high interactive education through digital
-            learning materials.
-          </p>
+          <h2>Our Core Values:</h2>
+          <ul>
+            <li><strong>Commitment to Excellence:</strong> Ensures we deliver the highest quality education.</li>
+            <li><strong>Quality:</strong> In our content and services empowers learners to succeed.</li>
+            <li><strong>Inclusivity:</strong> Welcomes and supports learners from all backgrounds, making education accessible to everyone.</li>
+            <li><strong>Innovation:</strong> Drives us to continuously improve and adapt to the evolving needs of our community.</li>
+          </ul>
+          <h2>Digital Mode of Learning:</h2>
+          <ul>
+            <li>Aims to enhance teaching and learning through technology integration.</li>
+            <li>Mobile schools or “m-learning” bring education directly to remote communities, often incorporating digital tools.</li>
+            <li>Platforms are provided for easily accessible and highly interactive education through digital learning materials.</li>
+          </ul>
         </div>
       </section>
     </div>

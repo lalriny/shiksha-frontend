@@ -1,12 +1,9 @@
-# TODO for Enhancing Insight Page
+# TODO: Format and Design Mission, Values, Vision, and Why Shiksha Page
 
-- [x] Expand article details display: Show full sections, additional Wikidata properties, and DBpedia data.
-- [x] Modify "Related Topics" section: Display related links as plain text without hyperlinks.
-- [x] Modify "External Links" in infobox: Display links as plain text without hyperlinks.
-- [x] Remove source mentions: Eliminate references to Wikipedia, Wikidata, etc.
-- [x] Enhance infobox: Include more details from Wikidata and DBpedia.
-- [x] Test the updated component for full details and no redirects.
-- [x] Show at least half the details about the searched topic: Use mobile-sections API to fetch more sections.
-- [x] Remove additional details sections: Removed "Additional Details" and "Metadata" from main article.
-- [x] Show related topics in main article: Display related topics from Wikidata claims.
-- [x] Update right sidebar Related Links: Show 5-7 reference links including summary and related topics.
+## Steps to Complete
+- [x] Update About2.css: Improve layout with grid for multiple cards, enhance .about2-card styles, adjust spacing, typography, and responsiveness for a cleaner look.
+- [x] Edit Mission.jsx: Restructure content into organized sections, possibly with bullet points for key aspects.
+- [x] Edit Values.jsx: Format as a list of key values with bullet points or separate cards for each value.
+- [x] Edit Vision.jsx: Split long paragraphs into concise points or sections for better readability.
+- [x] Edit WhyShiksha.jsx: Break down the single paragraph into bullet points highlighting unique features.
+- [x] Test the changes: Run the app and verify the neat and clean design across components.

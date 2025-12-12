@@ -27,11 +27,11 @@
   position: relative;
   margin: 40px auto;
   padding: 60px 0;
-  background: #ffffff;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 900px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  width: 95%;
+  max-width: 1200px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -52,6 +52,7 @@
   z-index: 5;
   cursor: pointer;
   transition: background 0.18s ease, opacity 0.18s ease;
+  pointer-events: auto;
 }
 
 .nav-btn img {
@@ -81,14 +82,9 @@
 
 /* Slider viewport */
 .slider {
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.slider::-webkit-scrollbar {
-  display: none;
+  overflow-x: hidden;
+  touch-action: none;
+  pointer-events: none;
 }
 
 /* Track */
@@ -127,8 +123,8 @@
 }
 
 .about-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .about-card img {

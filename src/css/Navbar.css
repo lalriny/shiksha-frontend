@@ -44,6 +44,35 @@
   border-bottom: 1px solid #decfbdff;
 }
 
+
+
+marquee {
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+marquee span {
+  padding: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Times New Roman', Times, serif;
+  background: linear-gradient(to left, Red, violet, indigo, blue, green, rgb(211, 211, 0), orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+marquee span .pause {
+  color: black;
+  font-size: 25px;
+  font-weight: 1050px;
+}
+
+
 .header-left {
   display: flex;
   align-items: center;
@@ -245,13 +274,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .top-strip {
-    flex-direction: column;
     gap: 10px;
     text-align: center;
   }
 
   .main-header {
-    flex-direction: column;
     text-align: center;
     gap: 15px;
   }
@@ -265,7 +292,7 @@
     justify-content: center;
   }
 
-  .nav-menu {
+  ul {
     flex-direction: column;
   }
 
@@ -286,19 +313,29 @@
 }
 
 @media (max-width: 480px) {
+  .main-header {
+    justify-content: space-around;
+  }
+
   .strip-controls {
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .header-right {
-    flex-direction: column;
+    /* flex-direction: column; */
+    display: none;
     gap: 5px;
   }
 
   .badge {
     font-size: 10px;
     padding: 3px 8px;
+  }
+
+  .tag img {
+    padding-top: 40px;
+    width: 270px;
   }
 }
 
@@ -334,4 +371,52 @@ body.high-contrast .dropdown-menu {
 body.high-contrast .badge {
   background-color: #fff;
   color: black;
+}
+
+.menu-icon {
+  display: none;
+  width: 30px;
+
+}
+
+@media (max-width: 770px) {
+  nav {
+    padding: 15px 0;
+  }
+
+  nav ul{
+    position: fixed;
+    top: 0;
+    left: 0px;
+    bottom: 0;
+    background-color: rgb(249, 249, 143);
+    background-image: linear-gradient(rgb(250, 250, 160), rgb(235, 200, 134), rgb(170, 244, 170), rgb(167, 244, 244));
+    color: aliceblue;
+    z-index: -1;
+    width: 200px;
+    padding-top: 50px;
+    transition: 0.5s;
+  }
+
+  .nav-menu {
+    justify-content: baseline;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 25px 40px;
+  }
+
+  .menu-icon {
+    display: block;
+    /* z-index: 1; */
+    width: 30px;
+    cursor: pointer;
+    color: rgb(2, 42, 78);
+  }
+
+  .hide-mobile-menu {
+    left: -200px;
+  }
+
 }

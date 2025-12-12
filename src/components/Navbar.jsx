@@ -10,6 +10,11 @@ const Navbar = () => {
   const [fontSize, setFontSize] = useState(1);
   const { t, switchLanguage } = useLanguage();
 
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const toggleMenu = ()=>{
+    mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
+  }
+
 {/*const toggleContrast = () => {
     setContrast(!contrast);
     document.body.classList.toggle('high-contrast');
@@ -29,10 +34,18 @@ const Navbar = () => {
     <>
       {/* Top Slim Strip */}
       <div className="top-strip">
-        <div className="strip-text">
-        </div>
+      {/* <img src={cross} alt="" /> */}
+        <marquee width="90%" direction="left" height="30px" scrollamount="10">
+          <span>Hurry Up!!! Addmission is going on. </span>
+          <span className='pause'> | </span>
+          <span>  New session will be started from 2026.</span>
+          <span className='pause'> | </span>
+          <span class="blink">  Register Now! </span>
+          <span className='pause'> | </span>
+        </marquee>
+        <div className="strip-text"></div>
         <div className="strip-controls">
-      {/*   <button onClick={toggleContrast} className="accessibility-btn" aria-label="Toggle contrast">
+          {/*   <button onClick={toggleContrast} className="accessibility-btn" aria-label="Toggle contrast">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
             </svg>
@@ -47,10 +60,11 @@ const Navbar = () => {
             {t('language')}
           </button>
         </div>
-      </div> 
+      </div>
 
       {/* Main Header */}
       <header className="main-header">
+      <img src="/menu_logo.png" alt="" className='menu-icon' onClick={toggleMenu}/>
         <div className="header-left">
            <Link to="/"
             className="brand-link"
@@ -122,11 +136,11 @@ const Navbar = () => {
               <li><a href="/current-affairs">{t('currentAffairs')}</a></li>
             </ul>
           </li>*/}
+          
           <li className="nav-item">
-            <span className="locked-link">
-              {t('generalStudies')} <span className="lock-icon">🔒</span>
-            </span>
+            <Link to="/general-studies">{t('generalStudies')}</Link>
           </li>
+
           {/*<li className="nav-item dropdown">
             <a href="#councelling">{t('counselling')}</a>
              <ul className="dropdown-menu">
@@ -135,10 +149,13 @@ const Navbar = () => {
               <li><a href="#admission-in-abroad">Admission in Abroad</a></li>
             </ul>
           </li>*/}
-           <li className="nav-item">
-            <span className="locked-link">
-              {t('counselling')} <span className="lock-icon">🔒</span>
-            </span>
+          <li className="nav-item dropdown">
+            <a href="/counselling">{t('Counselling')}</a>
+             <ul className="dropdown-menu">
+              <li><a href="/counselling">{t('Career')}</a></li>
+              <li><a href="/counselling">{t('Admission in India')}</a></li>
+              <li><a href="/counselling">{t('Admission in Abroad')}</a></li>
+            </ul>
           </li>
           <li className="nav-item">
             <span className="locked-link">
@@ -155,10 +172,12 @@ const Navbar = () => {
               <li><a href="#specialized">Specialized</a></li>
             </ul>
           </li> */}
-          <li className="nav-item">
-            <span className="locked-link">
-              {t('training')} <span className="lock-icon">🔒</span>
-            </span>
+          <li className="nav-item dropdown">
+            <a href="/training">{t('training')}</a>
+            <ul className="dropdown-menu">
+              <li><a href="/training">{t('industrial')}</a></li>
+              <li><a href="/training">{t('specialized')}</a></li>
+            </ul>
           </li>
           <li className="nav-item">
             <span className="locked-link">

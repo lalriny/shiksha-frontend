@@ -18,7 +18,8 @@
 .footer-branding {
   position: relative;
   top: -30px;
-  left: -20px; /* move left */
+  left: -20px;
+  /* move left */
   text-align: left;
 }
 
@@ -59,13 +60,22 @@
   color: #2d5a2d;
 }
 
+.social-icon[aria-label="Linkedin"] {
+  color: #0400ff;
+}
+
+.social-icon[aria-label="X_handle"] {
+  color: #060606;
+}
+
 /* Navigation Groups */
 .footer-footer-nav {
   display: flex;
   gap: 10px;
   flex: 2;
   position: relative;
-  left: 150px; /* move right */
+  left: 150px;
+  /* move right */
 }
 
 .footer-nav-group {
@@ -83,6 +93,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-nav-group li {
@@ -137,7 +149,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .footer-content {
-    flex-direction: column;
+    /* flex-direction: row; */
     gap: 30px;
     padding: 0 20px;
   }
@@ -157,7 +169,7 @@
   }
 
   .footer-footer-nav {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 30px;
   }
 
@@ -174,5 +186,18 @@
 
   .footer-social-icons {
     justify-content: center;
+  }
+}
+
+@media (max-width:426px) {
+  .footer-content {
+    flex-direction: column;
+align-items: stretch;  }
+  .footer-info-block {
+    flex-direction: row;
+ justify-content: space-around;
+  }
+    .footer-footer-nav {
+left: 0px;
   }
 }

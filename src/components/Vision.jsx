@@ -17,23 +17,14 @@ const Vision = () => {
             technology and expert guidance, we empower individuals to achieve
             their full potential and contribute positively to society.
           </p>
-          <p>
-            Leveraging technology like online learning platforms, mobile
-            schools, and digital resources to reach students in remote areas.
-          </p>
-          <p>
-            Enabling individuals in remote areas to acquire knowledge and skills
-            for personal growth and community development.
-          </p>{" "}
-          <p>
-            - Supporting learners of all backgrounds, abilities and learning
-            styles.
-          </p>
-          <p>
-            - Raising awareness of non-traditional and diverse career
-            opportunities. <p>
-            </p>- Bringing classroom to your doorstep.
-          </p>
+          <h2>Key Initiatives:</h2>
+          <ul>
+            <li>Leveraging technology like online learning platforms, mobile schools, and digital resources to reach students in remote areas.</li>
+            <li>Enabling individuals in remote areas to acquire knowledge and skills for personal growth and community development.</li>
+            <li>Supporting learners of all backgrounds, abilities, and learning styles.</li>
+            <li>Raising awareness of non-traditional and diverse career opportunities.</li>
+            <li>Bringing the classroom to your doorstep.</li>
+          </ul>
         </div>
       </section>
     </div>

@@ -24,7 +24,7 @@ const About2 = () => {
     {
       title: "Why Choose Shiksha?",
       text: "Interactive courses, live classes, personalized dashboards, and a vibrant learning community.",
-      link: "/why-choose-shiksha",
+      link: "/why-shiksha",
     },
   ];
 
@@ -46,7 +46,10 @@ const About2 = () => {
             style={{ animationDelay: `${0.2 * index}s` }}
             onClick={() => navigate(item.link)}
           >
-            <h2>{item.title}</h2>
+            <h2>
+              <span className="item-icon">{item.icon}</span>
+              {item.title}
+            </h2>
             <p>{item.text}</p>
           </div>
         ))}
