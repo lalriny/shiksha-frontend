@@ -157,11 +157,9 @@ const Navbar = () => {
               <li><a href="/counselling">{t('Admission in Abroad')}</a></li>
             </ul>
           </li>
-          <li className="nav-item">
-            <span className="locked-link">
-              {t('forum')} <span className="lock-icon">🔒</span>
-            </span>
-          </li>
+            <li className="nav-item">
+            <Link to="/forum">{t('forum')}</Link>
+        </li>
           <li className="nav-item">
             <Link to="/insight">{t('insight')}</Link>
           </li>

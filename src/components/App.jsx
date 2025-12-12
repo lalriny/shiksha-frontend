@@ -25,11 +25,32 @@ import Training from './Training'
 import GeneralStudies from './GeneralStudies'
 import Faq from './Faq'
 import Counselling from './Counselling'
+import ThreadListPage from '../forum/ThreadListPage'
+import ThreadDetailPage from '../forum/ThreadDetailPage'
 
 function App() {
   return (
     <div className="app">
       <Routes>
+         <Route path="/forum" element={
+            <div className="page-content">
+            <Navbar />
+            <ThreadListPage />
+            <Footer />
+              </div>
+                } />
+      <Route path="/forum/:threadId" element={
+    <div className="page-content">
+       <Navbar/>
+    <ThreadDetailPage />
+    <Footer/>
+  </div>
+} />
+
+
+
+
+
         <Route path="/" element={
           <div className="page-content">
             <Navbar />
