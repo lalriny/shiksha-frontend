@@ -1,6 +1,6 @@
 import React from "react";
 import "tailwindcss";
-import "../css/placements.css";
+import "../css/Placements.css";
 // import { Card, CardContent } from "../ui/card";
 // import { Button } from "../ui/button";
 import { motion } from "framer-motion";
