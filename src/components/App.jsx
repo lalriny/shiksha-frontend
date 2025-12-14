@@ -1,30 +1,39 @@
 import { Routes, Route } from 'react-router-dom'
+
 import Navbar from './Navbar'
 import LandingHeader from './LandingHeader'
 import MainGrid from './MainGrid'
 import LowerGrid from './LowerGrid'
 import Feedback from './Feedback'
 import Footer from './Footer'
+
 import About from './About'
 import About2 from './About2'
 import Vision from './Vision'
 import Mission from './Mission'
 import Values from './Values'
 import WhySiksha from './WhySiksha'
+
 import '../css/App.css'
+
 import Contact from './Contact'
 import ExploreServices from './ExploreServices'
 import CurrentAffairs from './CurrentAffairs'
 import Upcoming from './Upcoming'
-import Login from '../auth/Login'
-import Signup from '../auth/Signup'
 import Courses from './Courses'
 import TermsCondition from './TermsCondition'
+
+import Login from '../auth/Login'
+import Signup from '../auth/Signup'
+
 import Insight from './Insight'
 import Training from './Training'
 import GeneralStudies from './GeneralStudies'
 import Faq from './Faq'
 import Counselling from './Counselling'
+
+import Placements from './Placements'   // ✅ ADDED
+
 import ThreadListPage from '../forum/ThreadListPage'
 import ThreadDetailPage from '../forum/ThreadDetailPage'
 
@@ -56,14 +65,12 @@ function App() {
           }
         />
 
-        {/* ===== HOME (PC STYLE ON MOBILE) ===== */}
+        {/* ===== HOME ===== */}
         <Route
           path="/"
           element={
             <div className="page-content overflow-x-hidden">
               <Navbar />
-
-              {/* SCALE ONLY HOME CONTENT */}
               <div className="home-scale-wrapper mx-auto max-w-[1400px]">
                 <LandingHeader />
                 <MainGrid />
@@ -71,13 +78,12 @@ function App() {
                 <ExploreServices />
                 <Feedback />
               </div>
-
               <Footer />
             </div>
           }
         />
 
-        {/* ===== OTHER PAGES (UNCHANGED) ===== */}
+        {/* ===== STATIC PAGES ===== */}
         <Route
           path="/about"
           element={
@@ -145,6 +151,7 @@ function App() {
           }
         />
 
+        {/* ===== AUTH ===== */}
         <Route
           path="/login"
           element={
@@ -167,6 +174,7 @@ function App() {
           }
         />
 
+        {/* ===== CONTENT ===== */}
         <Route
           path="/current-affairs"
           element={
@@ -184,6 +192,18 @@ function App() {
             <div className="page-content">
               <Navbar />
               <Courses />
+              <Footer />
+            </div>
+          }
+        />
+
+        {/* ✅ PLACEMENTS (ADDED) */}
+        <Route
+          path="/placements"
+          element={
+            <div className="page-content">
+              <Navbar />
+              <Placements />
               <Footer />
             </div>
           }

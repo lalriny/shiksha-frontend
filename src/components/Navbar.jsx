@@ -61,7 +61,9 @@ const Navbar = () => {
       {/* ===== NAVBAR (PC STYLE ALWAYS) ===== */}
       <nav className="navbar navbar-pc">
         <ul className="nav-menu">
-          <li className="nav-item"><Link to="/">{t('home')}</Link></li>
+          <li className="nav-item">
+            <Link to="/">{t('home')}</Link>
+          </li>
 
           <li className="nav-item dropdown">
             <Link to="/about">{t('about')}</Link>
@@ -73,11 +75,30 @@ const Navbar = () => {
             </ul>
           </li>
 
-          <li className="nav-item"><Link to="/courses">{t('services')}</Link></li>
-          <li className="nav-item"><Link to="/general-studies">{t('generalStudies')}</Link></li>
-          <li className="nav-item"><Link to="/forum">{t('forum')}</Link></li>
-          <li className="nav-item"><Link to="/insight">{t('insight')}</Link></li>
-          <li className="nav-item"><Link to="/contact">{t('contact')}</Link></li>
+          <li className="nav-item">
+            <Link to="/courses">{t('services')}</Link>
+          </li>
+
+          {/* ✅ PLACEMENTS ADDED */}
+          <li className="nav-item">
+            <Link to="/placements">Placements</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/general-studies">{t('generalStudies')}</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/forum">{t('forum')}</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/insight">{t('insight')}</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/contact">{t('contact')}</Link>
+          </li>
         </ul>
       </nav>
     </>
