@@ -1,180 +1,146 @@
-/**
- * Signup Component
- *
- * This component renders a signup form with fields for first name, last name,
- * email, password, class selection, and conditional subject stream selection
- * for classes 11 and 12. It uses React state to manage form data.
- */
-
-import React, { useState } from 'react'; // Import React and useState hook
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import { useLanguage } from '../contexts/LanguageContext'; // Import language context
-import './Signup.css'; // Import CSS for styling
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
+import { useAuth } from "../contexts/AuthContext";
+import "./Signup.css";
 
 const Signup = () => {
-  const { t } = useLanguage(); // Get translation function
-  // State object to store all form input values
+  const { t } = useLanguage();
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    Address: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    class: '', // Class selection (8-12)
-    subject: '' // Subject stream (Science, Arts, Commerce) - shown conditionally
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
   });
 
-  /**
-   * Generic change handler for all form inputs
-   * @param {Event} e - The input change event
-   */
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+
   const handleChange = (e) => {
-    const { name, value } = e.target; // Destructure name and value from event target
-    setFormData(prev => ({
-      ...prev, // Spread previous state
-      [name]: value // Update the specific field
-    }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  /**
-   * Handles form submission
-   * @param {Event} e - The form submit event
-   */
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
-    // TODO: Implement actual signup logic (e.g., API call to create user account)
-    console.log('Signup:', formData); // Log form data for debugging
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors({});
+
+    if (formData.password !== formData.confirmPassword) {
+      setErrors({ confirmPassword: "Passwords do not match" });
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/signup/`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email,
+            username: formData.username,
+            password: formData.password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrors(data);
+        return;
+      }
+
+      // 🔑 Auto-login after signup
+      await login({
+        access: data.access,
+        refresh: data.refresh,
+      });
+
+      navigate("/", { replace: true });
+    } catch {
+      setErrors({ general: "Unable to reach server" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  // Boolean to determine if subject dropdown should be shown (only for classes 11 and 12)
-  const showSubjectDropdown = formData.class === '11' || formData.class === '12';
-
-  // Render the signup form
   return (
-    <div className="signup-container"> {/* Main container with beige background */}
-      <div className="signup-form"> {/* Form container with white background and shadow */}
-        <h2>{t('signupTitle')}</h2> {/* Form title */}
-        <form onSubmit={handleSubmit}> {/* Form element with submit handler */}
-          {/* First Name Input */}
-          <div className="signup-form-group">
-            <label htmlFor="firstName">{t('firstName')}</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-            />
-          </div>
+    <div className="signup-container">
+      <div className="signup-form">
+        <h2>{t("signupTitle")}</h2>
 
-          {/* Last Name Input */}
-          <div className="signup-form-group">
-            <label htmlFor="lastName">{t('lastName')}</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
-          </div>
+        {errors.general && (
+          <p className="signup-error">{errors.general}</p>
+        )}
 
-          {/* Address Input */}
+        <form onSubmit={handleSubmit}>
           <div className="signup-form-group">
-            <label htmlFor="Address">{t('address')}</label>
+            <label>Email</label>
             <input
-              type="text"
-              id="Address"
-              name="Address"
-              value={formData.Address}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Email Input */}
-          <div className="signup-form-group">
-            <label htmlFor="email">{t('email')}</label>
-            <input
-              type="email"
-              id="email"
               name="email"
+              type="email"
               value={formData.email}
               onChange={handleChange}
               required
             />
+            {errors.email && <p className="error">{errors.email[0]}</p>}
           </div>
 
-          {/* Password Input */}
           <div className="signup-form-group">
-            <label htmlFor="password">{t('password')}</label>
+            <label>Username</label>
             <input
-              type="password"
-              id="password"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+            {errors.username && (
+              <p className="error">{errors.username[0]}</p>
+            )}
+          </div>
+
+          <div className="signup-form-group">
+            <label>Password</label>
+            <input
               name="password"
+              type="password"
               value={formData.password}
               onChange={handleChange}
               required
             />
+            {errors.password && (
+              <p className="error">{errors.password[0]}</p>
+            )}
           </div>
 
-          {/* Confirm Password Input */}
           <div className="signup-form-group">
-            <label htmlFor="confirmPassword">{t('confirmPassword')}</label>
+            <label>Confirm Password</label>
             <input
-              type="password"
-              id="confirmPassword"
               name="confirmPassword"
+              type="password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
             />
+            {errors.confirmPassword && (
+              <p className="error">{errors.confirmPassword}</p>
+            )}
           </div>
 
-          {/* Class Selection Dropdown */}
-          <div className="signup-form-group">
-            <label htmlFor="class">{t('class')}</label>
-            <select
-              id="class"
-              name="class"
-              value={formData.class}
-              onChange={handleChange}
-              required
-            >
-              <option value="">{t('selectClass')}</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
-          </div>
-
-          {/* Conditional Subject Stream Dropdown - only shown for classes 11 and 12 */}
-          {showSubjectDropdown && (
-            <div className="signup-form-group">
-              <label htmlFor="subject">{t('subjectStream')}</label>
-              <select
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              >
-                <option value="">{t('selectSubject')}</option>
-                <option value="Science">{t('science')}</option>
-                <option value="Arts">{t('arts')}</option>
-                <option value="Commerce">{t('commerce')}</option>
-              </select>
-            </div>
-          )}
-
-          <button type="submit" className="signup-btn">{t('signup')}</button> {/* Submit button */}
+          <button type="submit" disabled={submitting}>
+            {submitting ? "Creating account…" : "Sign up"}
+          </button>
         </form>
-        <p>{t('alreadyHaveAccount')} <Link to="/login">{t('login')}</Link></p> {/* Link to login page */}
+
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </div>
     </div>
   );
