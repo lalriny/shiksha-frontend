@@ -56,7 +56,7 @@ const Signup = () => {
         return;
       }
 
-      // 🔑 Auto-login after signup
+      // ✅ Auto-login after signup
       await login({
         access: data.access,
         refresh: data.refresh,
@@ -73,10 +73,10 @@ const Signup = () => {
   return (
     <div className="signup-container">
       <div className="signup-form">
-        <h2>{t("signupTitle")}</h2>
+        <h2>{t("signupTitle") || "Sign Up"}</h2>
 
         {errors.general && (
-          <p className="signup-error">{errors.general}</p>
+          <p className="error general-error">{errors.general}</p>
         )}
 
         <form onSubmit={handleSubmit}>

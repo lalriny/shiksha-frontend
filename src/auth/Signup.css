@@ -1,103 +1,106 @@
-/* signup Component Styles */
-
-/* Main container - centers the form on the page with beige background */
+/* Signup page container */
 .signup-container {
+  min-height: calc(100vh - 160px);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* Changed from 100vh to auto to prevent overlay */
-  padding-top: 100px; /* Add top padding to avoid navbar */
-  padding-bottom: 100px; /* Add bottom padding to avoid footer */
-  background-color: #f5f5dc; /* Beige background color */
+  padding: 80px 16px;
+  background-color: #f5f5dc;
 }
 
-/* Form container - white background with shadow and rounded corners */
+/* Signup card */
 .signup-form {
-  background-color: white;
-  padding: 2rem; /* 2rem padding around form content */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
   width: 100%;
-  max-width: 400px; /* Maximum width for responsiveness */
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Form title styling */
+/* Title */
 .signup-form h2 {
   text-align: center;
-  margin-bottom: 1.5rem; /* Space below title */
-  color: #333; /* Dark gray text color */
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
-/* Form group container - groups label and input together */
+/* Form group */
 .signup-form-group {
-  margin-bottom: 1rem; /* Space between form groups */
+  margin-bottom: 0.75rem;
 }
 
-/* Label styling within form groups */
+/* Labels */
 .signup-form-group label {
-  display: block; /* Block display for full width */
-  margin-bottom: 0.5rem; /* Space below label */
-  font-weight: bold; /* Bold font weight */
-  color: #555; /* Medium gray text color */
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #555;
 }
 
-/* Input field styling */
-.signup-form-group input,
-.signup-form-group select {
-  width: 100%; /* Full width of container */
-  padding: 0.75rem; /* Padding inside input */
-  border: 1px solid #ddd; /* Light gray border */
-  border-radius: 4px; /* Rounded corners */
-  font-size: 1rem; /* Standard font size */
-  box-sizing: border-box; /* Include padding and border in width */
-}
-
-/* Input and select focus state - highlights focused element with blue border */
-.signup-form-group input:focus,
-.signup-form-group select:focus {
-  outline: none; /* Remove default outline */
-  border-color: #007bff; /* Blue border on focus */
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Blue glow effect */
-}
-
-/* Signup button styling */
-/*.signup-btn {
+/* Inputs */
+.signup-form-group input {
   width: 100%;
   padding: 0.75rem;
-  background-color: #007bff; 
-  color: white;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.signup-form-group input:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+/* Button */
+.signup-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  margin-top: 1rem; 
-}  */
+  margin-top: 1rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
-/* Signup button hover state - darker blue */
-/*.signup-btn:hover {
-  background-color: #0056b3;
-  transform: translateY(-1px); 
-}*/
+.signup-form button:hover {
+  background-color: #218838;
+}
 
-/* Signup button active state */
-/*.signup-btn:active {
-  transform: translateY(0);
-} */
+.signup-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 
-/* Paragraph styling for signup link */
-.signup-form p {
+/* Errors */
+.signup-form .error {
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.signup-form .general-error {
   text-align: center;
-  margin-top: 1rem; /* Space above paragraph */
+  margin-bottom: 0.75rem;
 }
 
-/* Link styling within the form */
+/* Footer text */
+.signup-form p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .signup-form a {
-  color: #000000; /* Black link color */
-  text-decoration: none; /* Remove underline */
+  color: #000;
+  text-decoration: none;
 }
 
-/* Link hover state - adds underline on hover */
 .signup-form a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
