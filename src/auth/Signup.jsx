@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
 import "./Signup.css";
 
 const Signup = () => {
-  const { t } = useLanguage();
-  const { login } = useAuth();
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -20,20 +18,22 @@ const Signup = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
+    setSubmitting(true);
 
     if (formData.password !== formData.confirmPassword) {
-      setErrors({ confirmPassword: "Passwords do not match" });
+      setErrors({ password: "Passwords do not match" });
+      setSubmitting(false);
       return;
     }
-
-    setSubmitting(true);
 
     try {
       const response = await fetch(
@@ -56,15 +56,18 @@ const Signup = () => {
         return;
       }
 
-      // ✅ Auto-login after signup
-      await login({
-        access: data.access,
-        refresh: data.refresh,
-      });
+      // Optional auto-login if backend returns tokens
+      if (data.access && data.refresh) {
+        login({
+          access: data.access,
+          refresh: data.refresh,
+          user: data.user || null,
+        });
+      }
 
       navigate("/", { replace: true });
-    } catch {
-      setErrors({ general: "Unable to reach server" });
+    } catch (err) {
+      setErrors({ global: "Network error. Please try again." });
     } finally {
       setSubmitting(false);
     }
@@ -73,10 +76,10 @@ const Signup = () => {
   return (
     <div className="signup-container">
       <div className="signup-form">
-        <h2>{t("signupTitle") || "Sign Up"}</h2>
+        <h2>Sign Up</h2>
 
-        {errors.general && (
-          <p className="error general-error">{errors.general}</p>
+        {errors.global && (
+          <p className="error-text">{errors.global}</p>
         )}
 
         <form onSubmit={handleSubmit}>
@@ -89,7 +92,9 @@ const Signup = () => {
               onChange={handleChange}
               required
             />
-            {errors.email && <p className="error">{errors.email[0]}</p>}
+            {errors.email && (
+              <p className="error-text">{errors.email[0]}</p>
+            )}
           </div>
 
           <div className="signup-form-group">
@@ -101,7 +106,7 @@ const Signup = () => {
               required
             />
             {errors.username && (
-              <p className="error">{errors.username[0]}</p>
+              <p className="error-text">{errors.username[0]}</p>
             )}
           </div>
 
@@ -114,9 +119,6 @@ const Signup = () => {
               onChange={handleChange}
               required
             />
-            {errors.password && (
-              <p className="error">{errors.password[0]}</p>
-            )}
           </div>
 
           <div className="signup-form-group">
@@ -128,13 +130,17 @@ const Signup = () => {
               onChange={handleChange}
               required
             />
-            {errors.confirmPassword && (
-              <p className="error">{errors.confirmPassword}</p>
+            {errors.password && (
+              <p className="error-text">{errors.password}</p>
             )}
           </div>
 
-          <button type="submit" disabled={submitting}>
-            {submitting ? "Creating account…" : "Sign up"}
+          <button
+            type="submit"
+            className="signup-btn"
+            disabled={submitting}
+          >
+            {submitting ? "Signing up…" : "Sign up"}
           </button>
         </form>
 
