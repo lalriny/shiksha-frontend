@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import '../css/GeneralStudies.css';
 import { useLanguage } from '../contexts/LanguageContext';
-import OpenAI from 'openai';
+
 
 const sampleCurrentAffairs = {
   '2024-10-01': [
@@ -792,13 +792,12 @@ Correct: B`;
                             {q.options.map((option, oIndex) => (
                               <button
                                 key={oIndex}
-                                className={`quiz-option ${
-                                  showAiAnswers[index]
+                                className={`quiz-option ${showAiAnswers[index]
                                     ? oIndex === q.correct
                                       ? 'correct'
                                       : ''
                                     : ''
-                                }`}
+                                  }`}
                                 onClick={() => setShowAiAnswers(prev => ({ ...prev, [index]: true }))}
                                 disabled={showAiAnswers[index]}
                               >
@@ -826,13 +825,12 @@ Correct: B`;
                             {q.options.map((option, oIndex) => (
                               <button
                                 key={oIndex}
-                                className={`quiz-option ${
-                                  showTriviaAnswers[index]
+                                className={`quiz-option ${showTriviaAnswers[index]
                                     ? oIndex === q.correct
                                       ? 'correct'
                                       : ''
                                     : ''
-                                }`}
+                                  }`}
                                 onClick={() => setShowTriviaAnswers(prev => ({ ...prev, [index]: true }))}
                                 disabled={showTriviaAnswers[index]}
                                 dangerouslySetInnerHTML={{ __html: option }}
