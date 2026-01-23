@@ -23,9 +23,9 @@ const Login = () => {
     setSubmitting(true);
 
     try {
-      await login(email, password);
+      await login(email, password); // 🔥 MUST store tokens inside AuthContext
       navigate("/", { replace: true });
-    } catch {
+    } catch (err) {
       setError("Invalid credentials");
     } finally {
       setSubmitting(false);
@@ -73,4 +73,4 @@ const Login = () => {
   );
 };
 
-export default Login; // ✅ THIS FIXES THE ERROR
+export default Login;

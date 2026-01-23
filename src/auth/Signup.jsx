@@ -26,7 +26,7 @@ const Signup = () => {
     setSubmitting(true);
 
     try {
-      await signup({ email, username, password });
+      await signup({ email, username, password }); // 🔥 MUST store tokens
       navigate("/", { replace: true });
     } catch (err) {
       setError("Signup failed. Please try again.");
@@ -95,4 +95,4 @@ const Signup = () => {
   );
 };
 
-export default Signup; // ✅ THIS IS REQUIRED
+export default Signup;

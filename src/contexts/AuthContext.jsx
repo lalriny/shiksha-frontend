@@ -9,19 +9,24 @@ export const AuthProvider = ({ children }) => {
 
   const isAuthenticated = !!user;
 
-  // 🔐 Single source of truth for user state
+  // 🔐 Load current user
   const bootstrap = async () => {
     try {
       const res = await api.get("/me/");
       setUser(res.data);
-    } catch {
-      logout();
+    } catch (err) {
+      // ✅ Only logout on UNAUTHORIZED (token invalid)
+      if (err.response?.status === 401) {
+        localStorage.clear();
+        setUser(null);
+      }
+      // ❗ 403 should NOT logout
     } finally {
       setLoading(false);
     }
   };
 
-  // 🔄 Restore session on refresh
+  // 🔄 Restore session
   useEffect(() => {
     if (localStorage.getItem("access")) {
       bootstrap();
@@ -37,23 +42,26 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("access", res.data.access);
     localStorage.setItem("refresh", res.data.refresh);
 
-    await bootstrap(); // ✅ normalize user
+    setLoading(true);
+    await bootstrap();
   };
 
-  // 🔑 SIGNUP (FIXED)
+  // 🔑 SIGNUP
   const signup = async (payload) => {
     const res = await api.post("/signup/", payload);
 
     localStorage.setItem("access", res.data.access);
     localStorage.setItem("refresh", res.data.refresh);
 
-    await bootstrap(); // ✅ SAME as login
+    setLoading(true);
+    await bootstrap();
   };
 
   // 🚪 LOGOUT
   const logout = () => {
     localStorage.clear();
     setUser(null);
+    setLoading(false);
   };
 
   // 🎭 ROLE CHECK
