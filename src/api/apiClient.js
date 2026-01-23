@@ -2,39 +2,67 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-api.interceptors.request.use((config) => {
-  const access = localStorage.getItem("access");
-  if (access) {
-    config.headers.Authorization = `Bearer ${access}`;
-  }
-  return config;
-});
+/* ===============================
+   REQUEST INTERCEPTOR
+================================ */
+api.interceptors.request.use(
+  (config) => {
+    const access = localStorage.getItem("access");
 
+    if (access) {
+      config.headers = config.headers || {};
+      config.headers.Authorization = `Bearer ${access}`;
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+/* ===============================
+   RESPONSE INTERCEPTOR
+================================ */
 api.interceptors.response.use(
-  (res) => res,
+  (response) => response,
   async (error) => {
-    const original = error.config;
+    const originalRequest = error.config;
 
-    if (error.response?.status === 401 && !original._retry) {
-      original._retry = true;
+    // 🔒 Handle expired access token
+    if (
+      error.response &&
+      (error.response.status === 401 || error.response.status === 403) &&
+      !originalRequest._retry
+    ) {
+      originalRequest._retry = true;
 
       const refresh = localStorage.getItem("refresh");
-      if (!refresh) throw error;
+      if (!refresh) {
+        localStorage.clear();
+        window.location.href = "/login";
+        return Promise.reject(error);
+      }
 
       try {
-        const res = await axios.post(
+        const refreshResponse = await axios.post(
           `${import.meta.env.VITE_API_URL}/token/refresh/`,
           { refresh }
         );
 
-        localStorage.setItem("access", res.data.access);
-        original.headers.Authorization = `Bearer ${res.data.access}`;
-        return api(original);
-      } catch {
+        const newAccess = refreshResponse.data.access;
+
+        localStorage.setItem("access", newAccess);
+
+        originalRequest.headers.Authorization = `Bearer ${newAccess}`;
+        return api(originalRequest);
+      } catch (refreshError) {
         localStorage.clear();
         window.location.href = "/login";
+        return Promise.reject(refreshError);
       }
     }
 
