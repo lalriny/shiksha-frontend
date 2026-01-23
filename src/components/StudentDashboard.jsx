@@ -1,33 +1,42 @@
 import { useEffect, useState } from "react";
 import api from "../api/apiClient";
+import "../css/Dashboard.css";
 
 const StudentDashboard = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     api.get("/courses/")
       .then(res => setCourses(res.data))
-      .catch(() => setError("Failed to load courses"))
+      .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Loading courses...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) {
+    return <p className="dashboard-loading">Loading dashboard…</p>;
+  }
 
   return (
-    <div className="dashboard">
-      <h2>Available Courses</h2>
+    <div className="dashboard-wrapper">
+      <h1 className="dashboard-title">Student Dashboard</h1>
 
-      {courses.length === 0 && <p>No courses available.</p>}
-
-      {courses.map(course => (
-        <div key={course.id} className="course-card">
-          <h3>{course.title}</h3>
-          <p>{course.description}</p>
-        </div>
-      ))}
+      <div className="dashboard-cards">
+        {courses.length === 0 ? (
+          <div className="dashboard-card empty">
+            <h3>No Courses Yet</h3>
+            <p>Courses you enroll in will appear here.</p>
+          </div>
+        ) : (
+          courses.map(course => (
+            <div key={course.id} className="dashboard-card">
+              <h3>{course.title}</h3>
+              <p>{course.description || "No description available"}</p>
+              <button className="primary-btn">Continue</button>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };

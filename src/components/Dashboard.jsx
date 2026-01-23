@@ -4,18 +4,14 @@ import StudentDashboard from "./StudentDashboard";
 import TeacherDashboard from "./TeacherDashboard";
 
 const Dashboard = () => {
-  const { user, hasRole, loading } = useAuth();
+  const { hasRole } = useAuth();
 
-  // ⏳ wait until auth finishes
-  if (loading) return null;
-
-  // 🚫 Admin never sees dashboard
+  // Admin never uses this dashboard
   if (hasRole("admin")) {
     return <Navigate to="/admin" replace />;
   }
 
-  if (!user) return null;
-
+  // Teacher vs Student
   return hasRole("teacher")
     ? <TeacherDashboard />
     : <StudentDashboard />;
