@@ -30,16 +30,6 @@ const Navbar = () => {
     document.documentElement.style.fontSize = `${size * 100}%`;
   };
 
-  /* ================= Auth ================= */
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login", { replace: true });
-  };
-
-  const showDashboard = isAuthenticated && !hasRole("admin");
-
-  /* ================= Render ================= */
 
   return (
     <>
@@ -77,16 +67,34 @@ const Navbar = () => {
         </div>
 
         <div className="header-right">
-          <a href="https://www.facebook.com" className="social-icon">
-            <FaFacebookF />
-          </a>
-          <a href="https://www.instagram.com" className="social-icon">
-            <FaInstagram />
-          </a>
-          <a href="https://www.youtube.com" className="social-icon">
-            <FaYoutube />
-          </a>
-        </div>
+  <a
+    href="https://www.facebook.com"
+    className="social-icon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaFacebookF />
+  </a>
+
+  <a
+    href="https://www.instagram.com"
+    className="social-icon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaInstagram />
+  </a>
+
+  <a
+    href="https://www.youtube.com"
+    className="social-icon"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaYoutube />
+  </a>
+</div>
+
       </header>
 
       {/* ===== NAV ===== */}
@@ -103,43 +111,35 @@ const Navbar = () => {
           <li><Link to="/insight">{t("insight")}</Link></li>
           <li><Link to="/contact">{t("contact")}</Link></li>
 
-          {!isAuthenticated ? (
-            <>
-              <li><Link to="/login">Login</Link></li>
-              <li><Link to="/signup">Sign Up</Link></li>
-            </>
-          ) : (
-            <>
-              {showDashboard && (
-                <li>
-                  <Link to="/dashboard">Dashboard</Link>
-                </li>
-              )}
+{/* ===== AUTH SECTION (ONLY WHEN LOGGED IN) ===== */}
+{isAuthenticated && (
+  <>
+    {hasRole("teacher") && (
+      <li>
+        <Link to="/teacher">Teacher</Link>
+      </li>
+    )}
 
-              {hasRole("teacher") && (
-                <li>
-                  <Link to="/teacher">Teacher</Link>
-                </li>
-              )}
+    {hasRole("admin") && (
+      <li>
+        <Link to="/admin">Admin</Link>
+      </li>
+    )}
 
-              {hasRole("admin") && (
-                <li>
-                  <Link to="/admin">Admin</Link>
-                </li>
-              )}
+    <li className="nav-user">
+      <span className="nav-email">{user?.email}</span>
+      <button onClick={handleLogout} className="logout-btn">
+        Logout
+      </button>
+    </li>
+  </>
+)}
 
-              <li className="nav-user">
-                <span className="nav-email">{user?.email}</span>
-                <button onClick={handleLogout} className="logout-btn">
-                  Logout
-                </button>
-              </li>
-            </>
-          )}
-        </ul>
+  </ul>
       </nav>
     </>
   );
 };
+
 
 export default Navbar;
