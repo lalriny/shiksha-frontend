@@ -26,10 +26,21 @@ const Signup = () => {
     setSubmitting(true);
 
     try {
-      await signup({ email, username, password }); // 🔥 MUST store tokens
-      navigate("/", { replace: true });
+      await signup({ email, username, password });
+
+      // ✅ DO NOT auto-login
+      // ✅ Redirect to login with info message
+      navigate("/login", {
+        replace: true,
+        state: {
+          message:
+            "Account created successfully. Please verify your email before logging in.",
+        },
+      });
     } catch (err) {
-      setError("Signup failed. Please try again.");
+      setError(
+        err?.message || "Signup failed. Please try again."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -77,7 +88,9 @@ const Signup = () => {
             <input
               type="password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={(e) =>
+                setConfirmPassword(e.target.value)
+              }
               required
             />
           </div>

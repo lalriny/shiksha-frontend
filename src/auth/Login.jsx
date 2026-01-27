@@ -23,10 +23,15 @@ const Login = () => {
     setSubmitting(true);
 
     try {
-      await login(email, password); // 🔥 MUST store tokens inside AuthContext
+      await login(email, password);
       navigate("/", { replace: true });
     } catch (err) {
-      setError("Invalid credentials");
+      // ✅ Show backend message if available
+      if (err?.message) {
+        setError(err.message);
+      } else {
+        setError("Login failed. Please try again.");
+      }
     } finally {
       setSubmitting(false);
     }
