@@ -102,13 +102,7 @@ const Navbar = () => {
           {/* ===== AUTH SECTION ===== */}
 {isAuthenticated && user && (
   <>
-    {hasRole?.("teacher") && (
-      <li><Link to="/teacher">Teacher</Link></li>
-    )}
 
-    {hasRole?.("admin") && (
-      <li><Link to="/admin">Admin</Link></li>
-    )}
 
     <li className="nav-user">
       <span className="nav-email">{user.email}</span>
