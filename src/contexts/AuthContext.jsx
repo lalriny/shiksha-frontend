@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import api from "../api/apiClient";
+import extractError from "../utils/extractError";
 
 const AuthContext = createContext(null);
 
