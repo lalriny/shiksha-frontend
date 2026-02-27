@@ -39,6 +39,7 @@ import Faq from './Faq';
 import Counselling from './Counselling';
 
 import Placements from './Placements';
+import Payment from "./Payment";
 
 import ThreadListPage from '../forum/ThreadListPage';
 import ThreadDetailPage from '../forum/ThreadDetailPage';
@@ -112,6 +113,7 @@ function App() {
 
         <Route path="/training" element={<Training />} />
         <Route path="/upcoming" element={<Upcoming />} />
+        <Route path="/payment" element={<Page><Payment /></Page>} />
 
         {/* ===== FORUM ===== */}
         <Route path="/forum" element={<Page><ThreadListPage /></Page>} />
