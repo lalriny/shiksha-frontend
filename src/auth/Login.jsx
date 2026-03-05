@@ -11,26 +11,17 @@ const Login = () => {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  // Already logged in → redirect based on role if known
-  if (isAuthenticated) {
-    const dest = user?.role === "teacher"
-      ? "https://teacher.shikshacom.com"
-      : "https://app.shikshacom.com";
-    window.location.href = dest;
-    return null;
-  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+    e.preventDefault(); 
+    setError(""); 
     setSubmitting(true);
 
     try {
       // login now returns the authenticated user object, but we can also
       // read it from context after the promise resolves
       const loggedInUser = await login(email, password);
-      const role = loggedInUser?.role || user?.role;
-
+const role = (loggedInUser?.role || user?.role || "").toLowerCase();
       // Role-based redirect
       if (role === "teacher") {
         window.location.href = "https://teacher.shikshacom.com";
