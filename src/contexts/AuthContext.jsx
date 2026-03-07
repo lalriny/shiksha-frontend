@@ -81,10 +81,12 @@ export const AuthProvider = ({ children }) => {
    * Check if user has a specific role
    */
   const hasRole = (role) => {
-    if (!user) return false;
-    const userRole = (user.role || "").toLowerCase();
-    return userRole === role.toLowerCase();
-  };
+  if (!user?.roles) return false;
+
+  return user.roles
+    .map((r) => r.toLowerCase())
+    .includes(role.toLowerCase());
+};
 
   return (
     <AuthContext.Provider
