@@ -25,53 +25,55 @@
 /* ===== HEADER ===== */
 .main-header {
   background: #faf3df;
-  padding: 15px 30px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #decfbd;
+  border-bottom: none;
 }
 
 .brand-link {
   display: flex;
   align-items: center;
+  gap: 14px;
   text-decoration: none;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
 }
 
 .title h1 {
   margin: 0;
-  font-size: 24px;
-  color: #222;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
 .title p {
-  margin: 0;
-  font-size: 14px;
-  color: #666;
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #555;
 }
 
 .header-right {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 /* Social icons row */
 .header-social {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   align-items: center;
 }
 
 .social-icon {
   color: #1f3d1f;
-  font-size: 16px;
+  font-size: 17px;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -84,44 +86,42 @@
 /* Auth buttons row */
 .header-auth {
   display: flex;
-  gap: 4px;
+  gap: 20px;
   align-items: center;
 }
 
 /* Login – plain text style */
 .header-login-btn {
-  padding: 3px 8px;
+  padding: 0;
   background: transparent;
   border: none;
-  color: #1f3d1f;
-  font-size: 13px;
+  color: #1a1a1a;
+  font-size: 14px;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.2s;
+  transition: color 0.2s;
 }
 
 .header-login-btn:hover {
-  background: rgba(31,61,31,0.08);
+  color: #1f3d1f;
 }
 
 /* Signup – plain text style */
 .header-signup-btn {
-  padding: 3px 8px;
+  padding: 0;
   background: transparent;
   border: none;
-  color: #1f3d1f;
-  font-size: 13px;
+  color: #1a1a1a;
+  font-size: 14px;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.2s;
+  transition: color 0.2s;
 }
 
 .header-signup-btn:hover {
-  background: rgba(31,61,31,0.08);
+  color: #1f3d1f;
 }
 
 /* Logout (in header) */
@@ -255,5 +255,15 @@
 }
 
 .dropdown-menu li a:hover {
+  background: #e6f0ff;
+}
+
+/* Prevent nav active style from bleeding into dropdown items */
+.dropdown-menu li a.active {
+  background: transparent;
+  border-radius: 0;
+}
+
+.dropdown-menu li a.active:hover {
   background: #e6f0ff;
 }

@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #f9f7f0; /* Light beige */
-  border-bottom: 1px solid #e8e6df;
+  padding: 14px 32px;
+  background-color: #f9f7f0;
+  border-bottom: 1px solid #e0dbd0;
 }
 
 .search-section {
@@ -101,13 +101,13 @@
 }
 
 .demo-btn {
-  background-color:#004A33;
+  background-color: #004A33;
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 8px 32px;
-  font-size: 15px;
-  font-weight: 300;
+  padding: 10px 28px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { courseCards, CourseCard } from './Courses';
-// import ComingSoon from './ComingSoon';
+import ComingSoon from './ComingSoon';
 import '../css/CoursePreview.css';
 
 const TABS = ['Online', 'Classroom Training', 'Software Development'];
@@ -12,6 +12,7 @@ const CoursePreview = () => {
 
   const handleArrow = (course) => {
     navigate('/courses', { state: { selectedCourse: course } });
+    window.scrollTo(0, 0);
   };
 
   return (

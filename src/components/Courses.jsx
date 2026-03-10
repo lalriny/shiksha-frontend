@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../css/Courses.css';
 
 const SUBJECT_DESC = 'Description: The details of the course like the type of board, syllabus covered, etc';
@@ -123,7 +123,8 @@ export const CourseCard = ({ course, onArrowClick }) => (
 
 const Courses = () => {
   const navigate = useNavigate();
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const location = useLocation();
+  const [selectedCourse, setSelectedCourse] = useState(location.state?.selectedCourse ?? null);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 

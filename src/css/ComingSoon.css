@@ -8,6 +8,9 @@
   background-color: #2d5a2d;
   padding: 18px 0;
   margin-bottom: 40px;
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .coming-soon-banner h2 {
@@ -56,12 +59,12 @@
 }
 
 .coming-soon-btn {
-  padding: 12px 28px;
+  padding: 8px 20px;
   background-color: #2d5a2d;
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }

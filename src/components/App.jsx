@@ -91,6 +91,7 @@ function App() {
         <Route path="/contact" element={<Page><Contact /></Page>} />
         <Route path="/terms" element={<Page><TermsCondition /></Page>} />
         <Route path="/faq" element={<Page><Faq /></Page>} />
+        <Route path="/feedback" element={<Page><Feedback /></Page>} />
 
         {/* ===== CONTENT ===== */}
         <Route path="/courses" element={<Page><Courses /></Page>} />

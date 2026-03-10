@@ -1,6 +1,6 @@
 /* ===== HOMEPAGE COURSE PREVIEW ===== */
 .course-preview {
-  background: #f5f0e8;
+  background: #f9f7f0;
   padding-bottom: 50px;
 }
 
@@ -8,7 +8,10 @@
 .preview-tab-bar {
   display: flex;
   background: #1a3a2a;
-  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  max-width: 1400px;
 }
 
 .preview-tab {

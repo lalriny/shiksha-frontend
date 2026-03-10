@@ -110,7 +110,7 @@ const Navbar = () => {
             <NavLink to="/courses">{t("courses")}</NavLink>
           </li>
 
-          <li><NavLink to="/placements">Placements</NavLink></li>
+          <li><NavLink to="/upcoming">Placements</NavLink></li>
           <li><NavLink to="/general-studies">{t("generalStudies")}</NavLink></li>
           <li><NavLink to="/forum">{t("forum")}</NavLink></li>
 
