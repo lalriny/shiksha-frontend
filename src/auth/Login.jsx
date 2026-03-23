@@ -37,24 +37,13 @@ const Login = () => {
 
     try {
       setStatusMessage("Checking your account...");
-      const loggedInUser = await login(email, password);
-
-      const roles = Array.isArray(loggedInUser?.roles) ? loggedInUser.roles : [];
-      const isTeacher = roles.some((r) => String(r).toLowerCase() === "teacher");
+      await login(email, password);
 
       setIsRedirecting(true);
-      setStatusMessage(
-        isTeacher
-          ? "Login successful. Redirecting to teacher dashboard..."
-          : "Login successful. Redirecting to student dashboard..."
-      );
-
-      const targetUrl = isTeacher
-        ? "https://teacher.shikshacom.com"
-        : "https://app.shikshacom.com";
+      setStatusMessage("Login successful. Redirecting to homepage...");
 
       setTimeout(() => {
-        window.location.replace(targetUrl);
+        window.location.replace("https://shikshacom.com/");
       }, 500);
     } catch (err) {
       const message =
