@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import "./Login.css";
 
@@ -20,7 +20,6 @@ const EyeOffIcon = () => (
 
 const Login = () => {
   const { login } = useAuth();
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,13 +36,25 @@ const Login = () => {
     setSubmitting(true);
 
     try {
-      await login(email, password);
+      setStatusMessage("Checking your account...");
+      const loggedInUser = await login(email, password);
+
+      const roles = Array.isArray(loggedInUser?.roles) ? loggedInUser.roles : [];
+      const isTeacher = roles.some((r) => String(r).toLowerCase() === "teacher");
 
       setIsRedirecting(true);
-      setStatusMessage("Login successful. Redirecting to home page...");
+      setStatusMessage(
+        isTeacher
+          ? "Login successful. Redirecting to teacher dashboard..."
+          : "Login successful. Redirecting to student dashboard..."
+      );
+
+      const targetUrl = isTeacher
+        ? "https://teacher.shikshacom.com"
+        : "https://app.shikshacom.com";
 
       setTimeout(() => {
-        navigate("/", { replace: true });
+        window.location.replace(targetUrl);
       }, 500);
     } catch (err) {
       const message =
@@ -78,7 +89,6 @@ const Login = () => {
             <label>Email</label>
             <input
               type="email"
-              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -91,7 +101,6 @@ const Login = () => {
             <div className="password-wrapper">
               <input
                 type={showPassword ? "text" : "password"}
-                autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -120,7 +129,7 @@ const Login = () => {
         </form>
 
         <p>
-          Don&apos;t have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </p>
       </div>
     </div>

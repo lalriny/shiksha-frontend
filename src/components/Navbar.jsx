@@ -29,7 +29,10 @@ const Navbar = () => {
     setOpenDropdown((prev) => (prev === name ? null : name));
   };
 
+  // Prevent render while auth bootstraps
   if (loading) return null;
+
+  /* ================= Accessibility ================= */
 
   const increaseFont = () => {
     const size = Math.min(fontSize + 0.1, 1.5);
@@ -43,25 +46,18 @@ const Navbar = () => {
     document.documentElement.style.fontSize = `${size * 100}%`;
   };
 
-  const handleLogout = async () => {
-    await logout();
-    navigate("/", { replace: true });
+  /* ================= Logout ================= */
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
   };
-
-  const isStudent =
-    String(user?.role || "").toLowerCase() === "student" ||
-    (Array.isArray(user?.roles) &&
-      user.roles.some((r) => String(r).toLowerCase() === "student"));
-
-  const isTeacher =
-    String(user?.role || "").toLowerCase() === "teacher" ||
-    (Array.isArray(user?.roles) &&
-      user.roles.some((r) => String(r).toLowerCase() === "teacher"));
 
   return (
     <>
+      {/* ===== TOP STRIP ===== */}
       <div className="top-strip">
-        <marquee width="90%" direction="left" height="30px" scrollamount="10">
+        <marquee width="90%" direction="left" height="30px" scrollAmount="10">
           <span>Hurry Up!!! Admission is going on.</span>
           <span> | New session starts from 2026 | </span>
           <span className="blink">Register Now!</span>
@@ -80,6 +76,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* ===== HEADER ===== */}
       <header className="main-header">
         <div className="header-left">
           <Link to="/" className="brand-link">
@@ -93,66 +90,26 @@ const Navbar = () => {
 
         <div className="header-right">
           <div className="header-social">
-            <a
-              href="https://www.facebook.com"
-              className="social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.facebook.com" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaFacebookF />
             </a>
-            <a
-              href="https://www.instagram.com"
-              className="social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.instagram.com" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
-            <a
-              href="https://www.youtube.com"
-              className="social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.youtube.com" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaYoutube />
             </a>
           </div>
-
           <div className="header-auth">
-            {!isAuthenticated ? (
-              <>
-                <Link to="/login" className="header-login-btn">Login</Link>
-                <Link to="/signup" className="header-signup-btn">Signup</Link>
-              </>
-            ) : (
-              <>
-                <span className="header-username">
-                  {user?.name || user?.full_name || user?.username || user?.email || "User"}
-                </span>
-
-                {isStudent && (
-                  <a href="https://app.shikshacom.com" className="header-signup-btn">
-                    Student Dashboard
-                  </a>
-                )}
-
-                {isTeacher && (
-                  <a href="https://teacher.shikshacom.com" className="header-signup-btn">
-                    Teacher Dashboard
-                  </a>
-                )}
-
-                <button onClick={handleLogout} className="header-login-btn">
-                  Logout
-                </button>
-              </>
-            )}
+            <Link to="/login"  className="header-login-btn">Login</Link>
+            <Link to="/signup" className="header-signup-btn">Signup</Link>
           </div>
         </div>
       </header>
 
+      {/* ===== NAV ===== */}
       <nav className="navbar navbar-pc">
+        {/* Hamburger – phone only */}
         <button
           className={`hamburger-btn${mobileOpen ? " open" : ""}`}
           onClick={toggleMobileMenu}
@@ -168,13 +125,7 @@ const Navbar = () => {
 
           <li className={`nav-item dropdown${openDropdown === "about" ? " mobile-dropdown-open" : ""}`}>
             <NavLink to="/about" onClick={closeMobileMenu}>{t("about")}</NavLink>
-            <button
-              className="mobile-dropdown-arrow"
-              onClick={() => handleDropdownToggle("about")}
-              aria-label="Toggle about menu"
-            >
-              ▾
-            </button>
+            <button className="mobile-dropdown-arrow" onClick={() => handleDropdownToggle("about")} aria-label="Toggle about menu">▾</button>
             <ul className="dropdown-menu">
               <li><NavLink to="/vision" onClick={closeMobileMenu}>{t("vision")}</NavLink></li>
               <li><NavLink to="/mission" onClick={closeMobileMenu}>{t("mission")}</NavLink></li>
@@ -193,13 +144,7 @@ const Navbar = () => {
 
           <li className={`nav-item dropdown${openDropdown === "counselling" ? " mobile-dropdown-open" : ""}`}>
             <NavLink to="/counselling" onClick={closeMobileMenu}>{t("counselling")}</NavLink>
-            <button
-              className="mobile-dropdown-arrow"
-              onClick={() => handleDropdownToggle("counselling")}
-              aria-label="Toggle counselling menu"
-            >
-              ▾
-            </button>
+            <button className="mobile-dropdown-arrow" onClick={() => handleDropdownToggle("counselling")} aria-label="Toggle counselling menu">▾</button>
             <ul className="dropdown-menu">
               <li><NavLink to="/counselling" onClick={closeMobileMenu}>{t("Career")}</NavLink></li>
               <li><NavLink to="/counselling" onClick={closeMobileMenu}>{t("Admission in India")}</NavLink></li>
@@ -209,13 +154,7 @@ const Navbar = () => {
 
           <li className={`nav-item dropdown${openDropdown === "training" ? " mobile-dropdown-open" : ""}`}>
             <NavLink to="/training" onClick={closeMobileMenu}>{t("training")}</NavLink>
-            <button
-              className="mobile-dropdown-arrow"
-              onClick={() => handleDropdownToggle("training")}
-              aria-label="Toggle training menu"
-            >
-              ▾
-            </button>
+            <button className="mobile-dropdown-arrow" onClick={() => handleDropdownToggle("training")} aria-label="Toggle training menu">▾</button>
             <ul className="dropdown-menu">
               <li><NavLink to="/training" onClick={closeMobileMenu}>{t("industrial")}</NavLink></li>
               <li><NavLink to="/training" onClick={closeMobileMenu}>{t("specialized")}</NavLink></li>

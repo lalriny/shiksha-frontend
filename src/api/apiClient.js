@@ -18,18 +18,20 @@ api.interceptors.response.use(
     const isRefreshCall = originalRequest.url?.includes("/refresh/");
     const isMeCall = originalRequest.url?.includes("/me/");
 
+    // 🚫 If simply not logged in, do NOT attempt refresh
     if (isUnauthorized && isMeCall) {
       return Promise.reject(error);
     }
 
+    // 🔄 Attempt refresh only once and not for refresh endpoint
     if (isUnauthorized && !originalRequest._retry && !isRefreshCall) {
       originalRequest._retry = true;
 
       try {
-        await api.post("/api/accounts/refresh/");
+        await api.post("/refresh/");
         return api(originalRequest);
       } catch {
-        window.location.href = "/login";
+        window.location.href = "https://www.shikshacom.com/login";
       }
     }
 
