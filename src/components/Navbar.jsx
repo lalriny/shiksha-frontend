@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { FiUser, FiArrowUpRight, FiLogOut } from "react-icons/fi";
 import "../css/Navbar.css";
 
 import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
+
 
 const Navbar = () => {
   const { t, switchLanguage } = useLanguage();
@@ -13,6 +15,8 @@ const Navbar = () => {
   const [fontSize, setFontSize] = useState(1);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileMenuRef = useRef(null);
 
   const toggleMobileMenu = () => {
     setMobileOpen((prev) => !prev);
@@ -27,6 +31,22 @@ const Navbar = () => {
   const handleDropdownToggle = (name) => {
     setOpenDropdown((prev) => (prev === name ? null : name));
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target)
+      ) {
+        setProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   if (loading) return null;
 
@@ -44,6 +64,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
+    setProfileOpen(false);
     navigate("/login", { replace: true });
   };
 
@@ -60,6 +81,8 @@ const Navbar = () => {
     const isStudent =
       normalizedRoles.includes("student") || singleRole === "student";
 
+    setProfileOpen(false);
+
     if (isTeacher) {
       window.location.href = "https://teacher.shikshacom.com/teacher/dashboard";
       return;
@@ -73,12 +96,7 @@ const Navbar = () => {
     window.location.href = "https://app.shikshacom.com/";
   };
 
-  const displayName =
-    user?.name ||
-    user?.full_name ||
-    user?.username ||
-    user?.email?.split("@")[0] ||
-    "My Account";
+  const displayName = user?.email || "My Account";
 
   return (
     <>
@@ -114,40 +132,55 @@ const Navbar = () => {
         </div>
 
         <div className="header-right">
-          <div className="header-auth">
           {isAuthenticated && user ? (
-  <div className="header-auth-loggedin">
-    <button
-      type="button"
-      className="header-dashboard-btn"
-      onClick={handleDashboard}
-    >
-      Dashboard
-    </button>
+            <div className="header-profile-wrap" ref={profileMenuRef}>
+              <span className="header-user-name">{displayName}</span>
 
-    <div className="header-user-row">
-      <span className="header-user-name">{displayName}</span>
+              <button
+                type="button"
+                className="header-profile-trigger"
+                onClick={() => setProfileOpen((prev) => !prev)}
+                aria-label="Open profile menu"
+              >
+                <FiUser size={34} />
+              </button>
 
-      <button
-        type="button"
-        className="header-login-btn"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
-    </div>
-  </div>
-) : (
-  <div className="header-auth">
-    <Link to="/login" className="header-login-btn">
-      Login
-    </Link>
-    <Link to="/signup" className="header-signup-btn">
-      Signup
-    </Link>
-  </div>
-)}
-          </div>
+              {profileOpen && (
+                <div className="header-profile-menu">
+                  <button
+                    type="button"
+                    className="header-profile-menu-item"
+                    onClick={handleDashboard}
+                  >
+                    <span>Go to Dashboard</span>
+                    <span className="header-profile-menu-icon">
+                      <FiArrowUpRight size={22} />
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    className="header-profile-menu-item"
+                    onClick={handleLogout}
+                  >
+                    <span>Logout</span>
+                    <span className="header-profile-menu-icon">
+                      <FiLogOut size={22} />
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="header-auth">
+              <Link to="/login" className="header-login-btn">
+                Login
+              </Link>
+              <Link to="/signup" className="header-signup-btn">
+                Signup
+              </Link>
+            </div>
+          )}
         </div>
       </header>
 
@@ -219,11 +252,13 @@ const Navbar = () => {
               Placements
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/general-studies" onClick={closeMobileMenu}>
               {t("generalStudies")}
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/forum" onClick={closeMobileMenu}>
               {t("forum")}
@@ -298,6 +333,7 @@ const Navbar = () => {
               {t("insight")}
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/contact" onClick={closeMobileMenu}>
               {t("contact")}
