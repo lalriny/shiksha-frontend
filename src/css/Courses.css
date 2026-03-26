@@ -149,6 +149,21 @@
   background: #76998b;
   transform: translateX(2px);
 }
+.course-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+ 
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  border-color: #87a99c;
+}
+ 
+.course-card:hover .course-arrow-btn {
+  background: #1a3a2a;
+  transform: translateX(3px);
+}
 
 /* ===== SHOW ALL ===== */
 .show-all-wrap {
@@ -480,5 +495,31 @@ h2.course-detail-title {
 
   .course-buy-button {
     width: 100%;
+  }
+}
+.board-back-btn {
+  position: absolute;
+  left: 24px;
+  top: 40px;
+  background: none;
+  border: 1.5px solid #4a7c59;
+  color: #4a7c59;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.board-back-btn:hover {
+  background: #4a7c59;
+  color: #fff;
+}
+
+
+@media (max-width: 600px) {
+  .board-back-btn {
+    top: 16px;
+    left: 16px;
   }
 }
