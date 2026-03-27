@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getThread, getComments } from '../api/forum';
+import { getThread, getComments, toggleThreadUpvote } from '../api/forum';
 import CommentList from './CommentList';
 import CommentComposer from './CommentComposer';
 import SortSelector from './SortSelector';
@@ -31,6 +31,7 @@ const ThreadDetailPage = () => {
 
         setThread(t);
         setUpvotes(t.upvote_count ?? 0);
+        setUpvoted(t.user_has_upvoted ?? false);
 
         const c = await getComments(threadId, { sort });
         if (!mounted) return;
@@ -54,11 +55,15 @@ const ThreadDetailPage = () => {
     setComments(c.results || []);
   };
 
-  const toggleUpvote = () => {
+  const toggleUpvote = async () => {
     if (!isLoggedIn) return;
-
-    setUpvotes((u) => (upvoted ? u - 1 : u + 1));
-    setUpvoted((prev) => !prev);
+    try {
+      const data = await toggleThreadUpvote(threadId);
+      setUpvoted(data.upvoted);
+      setUpvotes(data.upvote_count);
+    } catch (e) {
+      console.error('Upvote failed:', e);
+    }
   };
 
   const formatDateTime = (iso) => {

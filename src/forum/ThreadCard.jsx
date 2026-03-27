@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiUpArrow, BiSolidUpArrow } from 'react-icons/bi';
+import { toggleThreadUpvote } from '../api/forum';
 
 const ThreadCard = ({ thread, isLoggedIn }) => {
   const d = new Date(thread.created_at);
@@ -19,15 +20,19 @@ const ThreadCard = ({ thread, isLoggedIn }) => {
 
   const replies = thread.reply_count ?? 0;
 
-  const [upvoted, setUpvoted] = useState(false);
+  const [upvoted, setUpvoted] = useState(thread.user_has_upvoted ?? false);
   const [upvotes, setUpvotes] = useState(thread.upvote_count ?? 0);
 
-  const toggleUpvote = (e) => {
+  const toggleUpvote = async (e) => {
     e.preventDefault();
     if (!isLoggedIn) return;
-
-    setUpvotes((u) => (upvoted ? u - 1 : u + 1));
-    setUpvoted((prev) => !prev);
+    try {
+      const data = await toggleThreadUpvote(thread.id);
+      setUpvoted(data.upvoted);
+      setUpvotes(data.upvote_count);
+    } catch (err) {
+      console.error('Upvote failed:', err);
+    }
   };
 
   return (

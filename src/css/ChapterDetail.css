@@ -1,0 +1,89 @@
+.chapter-detail-wrap {
+  max-width: 860px;
+  margin: 40px auto 60px;
+  padding: 0 24px;
+}
+
+.chapter-detail-box {
+  background: #ffffff;
+  border: 1px solid #d7d7d7;
+  border-radius: 10px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.chapter-textbook-label {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: #eef5f0;
+  border: 1px solid #a8c8b4;
+  border-radius: 6px;
+}
+
+.chapter-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+
+.chapter-table th,
+.chapter-table td {
+  border: 1px solid #bfc8c3;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #222;
+}
+
+.chapter-table th {
+  background: #dcecdf;
+  font-weight: 700;
+  text-align: left;
+}
+
+.chapter-table th:first-child,
+.chapter-table td:first-child {
+  width: 60px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.chapter-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.chapter-table tbody tr:hover {
+  background: #f0f7f3;
+}
+
+/* Footer */
+.chapter-detail-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.chapter-detail-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+@media (max-width: 600px) {
+  .chapter-detail-box {
+    padding: 20px 16px;
+  }
+
+  .chapter-detail-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .course-buy-button {
+    width: 100%;
+  }
+}

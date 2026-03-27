@@ -4,41 +4,6 @@ export const courseData = {
     title: 'Class 8',
     desc: 'Complete Class 8 academic program with subject-wise lesson plan.',
     price: '₹1,500',
-    overview: {
-      board: 'CBSE / NCERT',
-      className: 'Class 8',
-      stream: 'General (All Subjects)',
-      mode: 'Live & Recorded Digital Classes',
-      platform: 'shikshacom.com',
-      document: 'Course Lesson Plan — Subject Wise',
-      about:
-        'This document outlines the complete chapter-wise lesson plan for the Class 8 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-      features: [
-        [
-          'Live Interactive Classes',
-          'Real-time classes with expert educators covering each chapter systematically.',
-        ],
-        [
-          'Recorded Session Access',
-          'All live sessions are recorded and available for revision anytime.',
-        ],
-        [
-          'Chapter-wise Assignments',
-          'Practice assignments aligned to each chapter for self-assessment.',
-        ],
-        [
-          'Performance Tracking',
-          'Student progress tracked chapter by chapter through the platform dashboard.',
-        ],
-      ],
-      subjectsCovered: [
-        'Mathematics',
-        'Science',
-        'Social Science (History, Geography, Civics)',
-        'English (Honeydew + It So Happened + Grammar)',
-        'Hindi — Vasant III + Grammar (MIL)',
-      ],
-    },
     topics: [
       {
         title: 'Topic 1: Mathematics',
@@ -181,40 +146,6 @@ export const courseData = {
   title: 'Class 9',
   desc: 'Complete Class 9 academic program with subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 9',
-    stream: 'General (All Subjects)',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 9 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'Mathematics',
-      'Science',
-      'Social Science (History, Geography, Civics, Economics)',
-      'English (Main Reader + Supplementary + Grammar)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: Mathematics',
@@ -352,41 +283,6 @@ export const courseData = {
   title: 'Class 10',
   desc: 'Complete Class 10 academic program with subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 10',
-    stream: 'General (All Subjects)',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'Shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 10 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'Mathematics',
-      'Science',
-      'Social Science (History, Geography, Civics, Economics)',
-      'English (First Flight + Footprints Without Feet + Grammar)',
-      'Hindi (Kshitij II + Kritika II + Grammar)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: Mathematics',
@@ -530,43 +426,6 @@ export const courseData = {
   title: 'Class 11 (Arts)',
   desc: 'Arts & Humanities stream with structured subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 11',
-    stream: 'Arts & Humanities Stream',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 11 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'History',
-      'Political Science (Political Theory + Indian Constitution)',
-      'Geography (Physical + India)',
-      'Economics (Optional)',
-      'Sociology (Optional)',
-      'English (Hornbill + Snapshots + Grammar)',
-      'Hindi — Aroh I + Vitan I (Optional)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: History',
@@ -750,42 +609,6 @@ export const courseData = {
   title: 'Class 11 (Commerce)',
   desc: 'Commerce stream with structured subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 11',
-    stream: 'Commerce Stream',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 11 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'Accountancy',
-      'Business Studies',
-      'Economics (Statistics + Indian Economic Development)',
-      'Mathematics (Optional)',
-      'English (Hornbill + Snapshots + Grammar)',
-      'Hindi — Aroh I + Vitan I (Optional)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: Accountancy',
@@ -917,42 +740,6 @@ export const courseData = {
   title: 'Class 11 (Science)',
   desc: 'Science stream with structured subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 11',
-    stream: 'Science Stream',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 11 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'Physics',
-      'Chemistry',
-      'Biology',
-      'Mathematics',
-      'English (Hornbill + Snapshots + Grammar)',
-      'Hindi — Aroh I + Vitan I (Optional)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: Physics',
@@ -1086,43 +873,6 @@ export const courseData = {
   title: 'Class 12 (Arts)',
   desc: 'Arts & Humanities stream with structured subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 12',
-    stream: 'Arts & Humanities Stream',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 12 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'History',
-      'Political Science (Contemporary World + India Since Independence)',
-      'Geography (Human + India)',
-      'Economics (Optional)',
-      'Sociology (Optional)',
-      'English (Flamingo + Vistas + Grammar)',
-      'Hindi — Aroh II + Vitan II (Optional)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: History',
@@ -1308,42 +1058,6 @@ export const courseData = {
   title: 'Class 12 (Commerce)',
   desc: 'Commerce stream with structured subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 12',
-    stream: 'Commerce Stream',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 12 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'Accountancy',
-      'Business Studies',
-      'Economics (Microeconomics + Macroeconomics)',
-      'Mathematics (Optional)',
-      'English (Flamingo + Vistas + Grammar)',
-      'Hindi — Aroh II + Vitan II (Optional)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: Accountancy',
@@ -1470,42 +1184,6 @@ export const courseData = {
   title: 'Class 12 (Science)',
   desc: 'Science stream with structured subject-wise lesson plan.',
   price: '₹1,500',
-  overview: {
-    board: 'CBSE / NCERT',
-    className: 'Class 12',
-    stream: 'Science Stream',
-    mode: 'Live & Recorded Digital Classes',
-    platform: 'shikshacom.com',
-    document: 'Course Lesson Plan — Subject Wise',
-    about:
-      'This document outlines the complete chapter-wise lesson plan for the Class 12 Academic Program offered on Shikshacom. The curriculum is structured according to CBSE guidelines and is based on NCERT textbooks. Each topic represents a core subject, with individual lessons mapped to chapters from the official NCERT syllabus.',
-    features: [
-      [
-        'Live Interactive Classes',
-        'Real-time classes with expert educators covering each chapter systematically.',
-      ],
-      [
-        'Recorded Session Access',
-        'All live sessions are recorded and available for revision anytime.',
-      ],
-      [
-        'Chapter-wise Assignments',
-        'Practice assignments aligned to each chapter for self-assessment.',
-      ],
-      [
-        'Performance Tracking',
-        'Student progress tracked chapter by chapter through the platform dashboard.',
-      ],
-    ],
-    subjectsCovered: [
-      'Physics',
-      'Chemistry',
-      'Biology',
-      'Mathematics',
-      'English (Flamingo + Vistas + Grammar)',
-      'Hindi — Aroh II + Vitan II (Optional)',
-    ],
-  },
   topics: [
     {
       title: 'Topic 1: Physics',

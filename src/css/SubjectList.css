@@ -1,0 +1,81 @@
+/* SubjectList.css */
+
+.subject-list-wrap {
+  max-width: 860px;
+  margin: 40px auto 60px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Card — matches your screenshot style */
+.subject-list-card {
+  background: #ffffff;
+  border: 1px solid #ddd8cc;
+  border-radius: 14px;
+  padding: 28px 28px 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.subject-list-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(74, 124, 89, 0.14);
+  border-color: #87a99c;
+}
+
+.subject-list-info {
+  flex: 1;
+}
+
+.subject-list-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 8px;
+}
+
+.subject-list-desc {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  padding-left: 4px;
+}
+
+/* Arrow button — reuses your existing arrow style */
+.subject-list-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #87a99c;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 20px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.subject-list-arrow:hover {
+  background: #1a3a2a;
+  transform: translateX(3px);
+}
+
+@media (max-width: 600px) {
+  .subject-list-card {
+    padding: 20px 18px;
+  }
+
+  .subject-list-name {
+    font-size: 16px;
+  }
+}
